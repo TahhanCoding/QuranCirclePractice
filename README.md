@@ -131,10 +131,11 @@ class AyaPlayer {
     }
 }
 ```
-
+to use the class:
+```
 //     let myPlayer = MyAVPlayer()
 //     let ayaPlayer = AyaPlayer(myPlayer: myPlayer)
-
+```
 
 ## Thread-Safe DownloadHelper Class
 ```
