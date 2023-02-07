@@ -65,6 +65,7 @@ if ar: مرحبًا أحمد
 
 ## AVPlayer
 
+``` 
 import AVFoundation
 import Foundation
 
@@ -128,15 +129,15 @@ class AyaPlayer {
     func playAya(_ url: URL) {
         myPlayer.play(url: url)
     }
-    
 }
+```
 
 //     let myPlayer = MyAVPlayer()
 //     let ayaPlayer = AyaPlayer(myPlayer: myPlayer)
 
 
 ## Thread-Safe DownloadHelper Class
-
+```
 class DownloadHelper {
 
     private let queue = DispatchQueue(label: "downloadHelperThread")
@@ -148,5 +149,5 @@ class DownloadHelper {
      // do something
      
      {
-
+```
 
