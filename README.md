@@ -1,7 +1,7 @@
 # QuranCirclePractice
 ##  written by Ahmed AlTahhan 
 
-This projects contains functions and demo experiments for what I did during localization of Quran Circle iOS Application.
+This project contains functions and demo exercise for my work in Quran Circle iOS Application.
 
 The localization is done generally in two files: 
 * Localizable.strings for normal strings that doesn't have Plural format.
@@ -62,6 +62,10 @@ if en: Hello Ahmed
 if ar: مرحبًا أحمد
 
 ```
+
+## AVPlayer
+
+
 
 
 
