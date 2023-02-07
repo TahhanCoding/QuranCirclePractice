@@ -65,10 +65,88 @@ if ar: مرحبًا أحمد
 
 ## AVPlayer
 
+import AVFoundation
+import Foundation
+
+protocol AVPlayerProtocol {
+    func play(url: URL)
+}
+
+class MyAVPlayer: NSObject, AVPlayerProtocol {
+
+    private var player: AVPlayer!
+    private var urlAsset: AVURLAsset!
+    
+    // public because it used to observe play end to initiate button next
+    public  var playerItem: AVPlayerItem!
+    
+        func play(url: URL) {
+            
+            // Clean up the previous player and item if any (Tested (prnt) and Working)
+            player?.pause()
+            player = nil
+            playerItem = nil
+            urlAsset = nil
+            // Observe the player item's status to ensure it's ready to play
+            playerItem?.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.old, .new], context: nil)
+
+            // Create a new player item and asset
+            urlAsset = AVURLAsset(url: url, options: nil)
+            playerItem = AVPlayerItem(asset: urlAsset!)
+            player = AVPlayer(playerItem: playerItem)
+            player?.currentItem?.preferredForwardBufferDuration = TimeInterval(3)
+            player?.automaticallyWaitsToMinimizeStalling = player?.currentItem?.isPlaybackBufferEmpty ?? false
+            player?.seek(to: CMTime.zero)
+            player?.play()
+            print("HELLO: playing  URL: \(url)")
+        }
+
+        override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+            if keyPath == #keyPath(AVPlayerItem.status) {
+                let status = change?[.newKey] as? AVPlayerItem.Status
+                if status == .readyToPlay {
+                    player?.play()
+                }
+            }
+        }
+        
+        deinit {
+            playerItem?.removeObserver(self, forKeyPath: #keyPath(AVPlayerItem.status))
+            print("HELLO: Memory is now Free of AVPlayer")
+        }
+}
 
 
+class AyaPlayer {
+    
+    let myPlayer: AVPlayerProtocol
+    
+    init(myPlayer: AVPlayerProtocol) {
+        self.myPlayer = myPlayer
+    }
+    
+    func playAya(_ url: URL) {
+        myPlayer.play(url: url)
+    }
+    
+}
+
+//     let myPlayer = MyAVPlayer()
+//     let ayaPlayer = AyaPlayer(myPlayer: myPlayer)
 
 
+## Thread-Safe DownloadHelper Class
 
+class DownloadHelper {
+
+    private let queue = DispatchQueue(label: "downloadHelperThread")
+
+   func doSomethingProcessTimeConsuming() {  
+
+
+     queue.async {    [weak self] in 
+     // do something
+     
+     {
 
 
