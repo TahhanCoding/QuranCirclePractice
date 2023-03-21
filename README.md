@@ -132,10 +132,12 @@ if title.count > 35 {
 let appLang = Locale.preferredLanguages[0]
 
 if appLang == "ar" { titleLabel.textAlignment = .right }
-else		       { titleLabel.textAlignment = .left  }
+else		   { titleLabel.textAlignment = .left  }
 
 //I usually use “Hello” as a marker to filter console messages.
 print("Hello long title: fix your position please")
+
+}
 ``` 
 
 <img width="606" alt="Screenshot 2023-03-21 at 3 13 13 PM" src="https://user-images.githubusercontent.com/97001250/226616681-03d9b529-97b8-49b3-ae8e-4fa36e912768.png">
