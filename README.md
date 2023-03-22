@@ -112,11 +112,12 @@ In **ar Scheme** it shows:
 let lblText = "lbl.tag = 1".localizedWithArguments(count, suraName)
 ```
 
-#### Image of .stringsdict
+#### stringsdict Implementation
 
------
------
------
+
+![4c478839-c381-4144-880a-d1d77d34a20d](https://user-images.githubusercontent.com/97001250/227047319-77070374-6172-4426-bae2-1719c5dfa9b1.jpg)
+
+
 
 
 ### 3. Fix navigation bar Title UI
@@ -164,7 +165,7 @@ class  MyAVPlayer: AVPlayerProtocol {
 	static let shared = MyAVPlayer()
 
 	// AVQueuePlayer has better memory management
-	public var  player = AVQueuePlayer()
+	private var  player = AVQueuePlayer()
 	
 	// Public, so when player Item play till end, Next button is initiated
 	public var  playerItem: AVPlayerItem!
@@ -194,7 +195,7 @@ class  AyaPlayer {
 
 	static  let  shared = AyaPlayer(myPlayer: MyAVPlayer.shared)
 
-	let  myPlayer: AVPlayerProtocol
+	private let  myPlayer: AVPlayerProtocol
 
 	init(myPlayer: AVPlayerProtocol) {
 		self.myPlayer = myPlayer
