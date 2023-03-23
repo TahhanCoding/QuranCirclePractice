@@ -49,7 +49,7 @@ extension String {
         NSLocalizedString(self, tableName: "Localizable", comment: "")
   }
       func localizedWithArguments(_ arguments: CVarArg...) -> String {
-        String(format: self.localized(), arguments: arguments)
+        String(format: self.localized, arguments: arguments)
   }
 }
 ```
@@ -97,13 +97,13 @@ Text(message)
 In **en Scheme** it shows:
 
 ```
-							   Hello Ahmed !
+		   Hello Ahmed !
 ```
 
 In **ar Scheme** it shows:
 
 ```
-							   ! مرحبًا أحمد
+		   ! مرحبًا أحمد
 ```
 
 ### 2. Localization of strings with Integer arguments.
