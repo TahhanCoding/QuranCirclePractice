@@ -117,6 +117,7 @@ let lblText = "lbl.tag = 1".localizedWithArguments(count, suraName)
 
 ![4c478839-c381-4144-880a-d1d77d34a20d](https://user-images.githubusercontent.com/97001250/227047319-77070374-6172-4426-bae2-1719c5dfa9b1.jpg)
 
+<img width="388" alt="Screenshot 2023-03-30 at 9 16 31 PM" src="https://user-images.githubusercontent.com/97001250/228940928-e023f2b0-815c-4230-82d1-37c88e2dddd9.png">
 
 
 
